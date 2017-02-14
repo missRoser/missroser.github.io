@@ -1225,7 +1225,7 @@ pre .javascript .function {
   }
 }
 .posts-expand .post-title-link {
-  display: inline-block;
+/*display: inline-block;*/
   position: relative;
   color: #555;
   border-bottom: none;
@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8bac6f;
+  background: #2641ff;
 }
 .links-of-blogroll {
   font-size: 13px;
