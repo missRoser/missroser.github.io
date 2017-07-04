@@ -87,18 +87,12 @@
 
 
 
-<meta name="description" content="git提交代码到github上和多个github帐号的SSH key切换">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git_ssh">
-<meta property="og:url" content="http://yoursite.com/2017/02/21/git-ssh/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="神秘挑战者">
+<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
 <meta property="og:site_name" content="神秘挑战者">
-<meta property="og:description" content="git提交代码到github上和多个github帐号的SSH key切换">
-<meta property="og:image" content="http://okyal4bzs.bkt.clouddn.com/ssh.png">
-<meta property="og:updated_time" content="2017-02-21T06:43:02.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git_ssh">
-<meta name="twitter:description" content="git提交代码到github上和多个github帐号的SSH key切换">
-<meta name="twitter:image" content="http://okyal4bzs.bkt.clouddn.com/ssh.png">
+<meta name="twitter:title" content="神秘挑战者">
 
 <style>
     .pace .pace-progress {
@@ -132,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/21/git-ssh/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2017/07/"/>
 
-  <title> git_ssh | 神秘挑战者 </title>
+  <title> 归档 | 神秘挑战者 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +150,7 @@
   
 
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
     <div class="headband"></div>
     <a href="https://github.com/missRoser"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 
@@ -265,172 +259,66 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                git_ssh
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-21T13:54:56+08:00" content="2017-02-21">
-              2017-02-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <span class="archive-page-counter">
       
       
-
-      
-        <p>git提交代码到github上和多个github帐号的SSH key切换</p>
-<a id="more"></a>
-<h1 id="第一步-创建ssh-key"><a href="#第一步-创建ssh-key" class="headerlink" title="第一步 创建ssh key"></a>第一步 创建ssh key</h1><p>在c盘users/Administrator下查看是否有.ssh文件.如果有,证明你已经创建过了,跳过该步骤.<br>如果没有，打开打开Git Bash，创建SSH Key：ssh-keygen -t rsa -C “自己的邮箱.com”，一路回车，会在~/.ssh/目录下生成id_rsa和id_rsa.pub两个文件。</p>
-<h1 id="第二步-登录github"><a href="#第二步-登录github" class="headerlink" title="第二步 登录github"></a>第二步 登录github</h1><p>登录你的github账号<br><img src="http://okyal4bzs.bkt.clouddn.com/ssh.png" alt=""><br>按上图中的1、2步打开如图界面，点击3创建一个ssh keys   title随便写，Key就是你本地的id_rsa.pub里的内容.填写完点击add ssh key就可以忘自己github上提交代码了。GitHub允许你添加多个Key，只要把每台电脑的Key都按照上面的方法添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
-<h1 id="第三步-不同github账号生成不同ssh-key"><a href="#第三步-不同github账号生成不同ssh-key" class="headerlink" title="第三步 不同github账号生成不同ssh key"></a>第三步 不同github账号生成不同ssh key</h1><p>生成第二个sshkey ssh-keygen -t rsa -C “自己的邮箱.com”<br>这次不要一路回车了，给这个文件起一个名字 不然默认的话就覆盖了之前生成的第一个<br>起个名字  密码的话 可起可不起(随缘吧)</p>
-<p>在.ssh/下创建config文件 内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line"></div><div class="line">Host warlock.github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/warlock</div></pre></td></tr></table></figure>
-<p>Host后面的名字随意起，然后测试是否能跑通ssh -T git@github.com</p>
-<p>ssh提交的时候默认会读取id_rsa。如果要提交到另一个ssh上的时候需要提交的时候修改提交地址：<br>例子  git@my.github.com:username/repo.git(end)</p>
-
-      
-    </div>
-	
-	<div>
-	  
-		<div>
-    
-        <div style="text-align:center;color: #666;font-size:16px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-		
-		<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-		<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-		<script>
-			var cloudTieConfig = {
-			  url: document.location.href, 
-			  sourceId: "",
-			  productKey: "be07af53a5984f8a93a58af894b2c9a4",
-			  target: "cloud-tie-wrapper"
-			};
-			var yunManualLoad = true;
-			Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-		</script>
-	  
-	</div>
-
-    <div>
       
         
+      
+      嗯..! 目前共计 6 篇日志。 继续努力。
+    </span>
+
+    
 
       
-    </div>
+      
+      
 
-    <div>
       
         
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/02/21/all/" rel="next" title="常用前端资源汇总">
-                <i class="fa fa-chevron-left"></i> 常用前端资源汇总
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/30/es6/" rel="prev" title="es6">
-                es6 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
         </div>
       
+      
 
       
-      
-    </footer>
-	
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/07/04/20170704/" itemprop="url">
+              
+                <span itemprop="name">原生ajax</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-04T09:48:34+08:00"
+              content="2017-07-04" >
+          07-04
+        </time>
+      </div>
+
+    </header>
   </article>
+
+
+
+    
+
+  </section>
+
   
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
@@ -438,10 +326,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -461,17 +345,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpg"
@@ -514,17 +389,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步-创建ssh-key"><span class="nav-number">1.</span> <span class="nav-text">第一步 创建ssh key</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步-登录github"><span class="nav-number">2.</span> <span class="nav-text">第二步 登录github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步-不同github账号生成不同ssh-key"><span class="nav-number">3.</span> <span class="nav-text">第三步 不同github账号生成不同ssh key</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -628,9 +492,11 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   

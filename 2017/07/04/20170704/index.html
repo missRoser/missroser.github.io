@@ -87,18 +87,16 @@
 
 
 
-<meta name="description" content="git提交代码到github上和多个github帐号的SSH key切换">
+<meta name="description" content="原生ajax写法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git_ssh">
-<meta property="og:url" content="http://yoursite.com/2017/02/21/git-ssh/index.html">
+<meta property="og:title" content="原生ajax">
+<meta property="og:url" content="http://yoursite.com/2017/07/04/20170704/index.html">
 <meta property="og:site_name" content="神秘挑战者">
-<meta property="og:description" content="git提交代码到github上和多个github帐号的SSH key切换">
-<meta property="og:image" content="http://okyal4bzs.bkt.clouddn.com/ssh.png">
-<meta property="og:updated_time" content="2017-02-21T06:43:02.601Z">
+<meta property="og:description" content="原生ajax写法">
+<meta property="og:updated_time" content="2017-07-04T06:46:44.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git_ssh">
-<meta name="twitter:description" content="git提交代码到github上和多个github帐号的SSH key切换">
-<meta name="twitter:image" content="http://okyal4bzs.bkt.clouddn.com/ssh.png">
+<meta name="twitter:title" content="原生ajax">
+<meta name="twitter:description" content="原生ajax写法">
 
 <style>
     .pace .pace-progress {
@@ -132,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/21/git-ssh/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/04/20170704/"/>
 
-  <title> git_ssh | 神秘挑战者 </title>
+  <title> 原生ajax | 神秘挑战者 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +284,7 @@
             
             
               
-                git_ssh
+                原生ajax
               
             
           </h1>
@@ -298,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-21T13:54:56+08:00" content="2017-02-21">
-              2017-02-21
+            <time itemprop="dateCreated" datetime="2017-07-04T09:48:34+08:00" content="2017-07-04">
+              2017-07-04
             </time>
           </span>
 
@@ -312,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -345,16 +343,14 @@
       
 
       
-        <p>git提交代码到github上和多个github帐号的SSH key切换</p>
-<a id="more"></a>
-<h1 id="第一步-创建ssh-key"><a href="#第一步-创建ssh-key" class="headerlink" title="第一步 创建ssh key"></a>第一步 创建ssh key</h1><p>在c盘users/Administrator下查看是否有.ssh文件.如果有,证明你已经创建过了,跳过该步骤.<br>如果没有，打开打开Git Bash，创建SSH Key：ssh-keygen -t rsa -C “自己的邮箱.com”，一路回车，会在~/.ssh/目录下生成id_rsa和id_rsa.pub两个文件。</p>
-<h1 id="第二步-登录github"><a href="#第二步-登录github" class="headerlink" title="第二步 登录github"></a>第二步 登录github</h1><p>登录你的github账号<br><img src="http://okyal4bzs.bkt.clouddn.com/ssh.png" alt=""><br>按上图中的1、2步打开如图界面，点击3创建一个ssh keys   title随便写，Key就是你本地的id_rsa.pub里的内容.填写完点击add ssh key就可以忘自己github上提交代码了。GitHub允许你添加多个Key，只要把每台电脑的Key都按照上面的方法添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
-<h1 id="第三步-不同github账号生成不同ssh-key"><a href="#第三步-不同github账号生成不同ssh-key" class="headerlink" title="第三步 不同github账号生成不同ssh key"></a>第三步 不同github账号生成不同ssh key</h1><p>生成第二个sshkey ssh-keygen -t rsa -C “自己的邮箱.com”<br>这次不要一路回车了，给这个文件起一个名字 不然默认的话就覆盖了之前生成的第一个<br>起个名字  密码的话 可起可不起(随缘吧)</p>
-<p>在.ssh/下创建config文件 内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line"></div><div class="line">Host warlock.github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/warlock</div></pre></td></tr></table></figure>
-<p>Host后面的名字随意起，然后测试是否能跑通ssh -T git@github.com</p>
-<p>ssh提交的时候默认会读取id_rsa。如果要提交到另一个ssh上的时候需要提交的时候修改提交地址：<br>例子  git@my.github.com:username/repo.git(end)</p>
-
+        <p>原生ajax写法<br><a id="more"></a></p>
+<h1 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXMLHTTPRequest</span>(<span class="params"></span>) </span>&#123;     </div><div class="line">     <span class="comment">//1.创建XMLHttpRequest对象        </span></div><div class="line">     <span class="comment">//需要针对IE和其他类型的浏览器建立这个对象的不同方式写不同的代码     </span></div><div class="line">     <span class="keyword">var</span> xmlHttpRequest;  </div><div class="line">     <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;     </div><div class="line">         <span class="comment">//针对FireFox，Mozillar，Opera，Safari，IE7，IE8     </span></div><div class="line">        xmlHttpRequest = <span class="keyword">new</span> XMLHttpRequest();     </div><div class="line">         <span class="comment">//针对某些特定版本的mozillar浏览器的BUG进行修正 </span></div><div class="line">     &#125; <span class="keyword">else</span> &#123;     </div><div class="line">         <span class="comment">//针对IE6(用ie6的公司，还是别去了。。会哭) </span></div><div class="line">         xmlHttpRequest= <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">     &#125;     </div><div class="line">     <span class="keyword">return</span> xmlHttpRequest;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h1 id="ajax的get请求"><a href="#ajax的get请求" class="headerlink" title="ajax的get请求"></a>ajax的get请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"GET"</span>, <span class="string">"http://test.com/?keywords=手机"</span>, <span class="literal">true</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        req.send(<span class="literal">null</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="ajax的post请求"><a href="#ajax的post请求" class="headerlink" title="ajax的post请求"></a>ajax的post请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">post</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"POST"</span>, <span class="string">"http://test.com/"</span>, <span class="literal">true</span>);  </div><div class="line">        req.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded; charset=gbk;"</span>);     </div><div class="line">        req.send(<span class="string">"keywords=手机"</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>post请求需要设置请求头</em></strong></p>
+<h1 id="ajax的jsonP请求"><a href="#ajax的jsonP请求" class="headerlink" title="ajax的jsonP请求"></a>ajax的jsonP请求</h1><p>在介绍jsonp之前，首先我们来了解下同源策略。同源策略阻止从一个域上加载的脚本获取或操作另一个域上的文档属性。也就是说，受到请求的 URL 的域必须与当前 Web 页面的域相同。这意味着浏览器隔离来自不同源的内容，以防止它们之间的操作。</p>
+<p>这时我们就需要jsonp来做跨域操作(有时候也需要服务端支持).主要是利用script标签内的src可以跨域来实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">wellFn</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data)</div><div class="line">  &#125;<span class="comment">//在js中做的回调函数</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> xmlJs = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line"></div><div class="line">xmlJs.src=<span class="string">"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E6%B5%B7%E8%B4%BC%E7%8E%8B&amp;json=1&amp;cb=wellFn"</span>;<span class="comment">//这时百度搜索的一个请求,wd后面跟要搜索的关键字;cb后面跟你的回调函数</span></div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(xmlJs)<span class="comment">//把script插入到页面中,当你打开页面时候控制台就会出现你请求的json</span></div></pre></td></tr></table></figure>
       
     </div>
 	
@@ -402,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/21/all/" rel="next" title="常用前端资源汇总">
-                <i class="fa fa-chevron-left"></i> 常用前端资源汇总
+              <a href="/2017/06/30/es6/" rel="next" title="es6">
+                <i class="fa fa-chevron-left"></i> es6
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/30/es6/" rel="prev" title="es6">
-                es6 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +513,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步-创建ssh-key"><span class="nav-number">1.</span> <span class="nav-text">第一步 创建ssh key</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步-登录github"><span class="nav-number">2.</span> <span class="nav-text">第二步 登录github</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步-不同github账号生成不同ssh-key"><span class="nav-number">3.</span> <span class="nav-text">第三步 不同github账号生成不同ssh key</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的get请求"><span class="nav-number">2.</span> <span class="nav-text">ajax的get请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的post请求"><span class="nav-number">3.</span> <span class="nav-text">ajax的post请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的jsonP请求"><span class="nav-number">4.</span> <span class="nav-text">ajax的jsonP请求</span></a></li></ol></div>
             
           </div>
         </section>
