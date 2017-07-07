@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="原生ajax写法">
+<meta name="description" content="原生ajax写法和jsonp的简单实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原生ajax">
 <meta property="og:url" content="http://yoursite.com/2017/07/04/20170704/index.html">
 <meta property="og:site_name" content="神秘挑战者">
-<meta property="og:description" content="原生ajax写法">
-<meta property="og:updated_time" content="2017-07-04T06:46:44.536Z">
+<meta property="og:description" content="原生ajax写法和jsonp的简单实现">
+<meta property="og:updated_time" content="2017-07-05T01:31:19.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生ajax">
-<meta name="twitter:description" content="原生ajax写法">
+<meta name="twitter:description" content="原生ajax写法和jsonp的简单实现">
 
 <style>
     .pace .pace-progress {
@@ -343,7 +343,7 @@
       
 
       
-        <p>原生ajax写法<br><a id="more"></a></p>
+        <p>原生ajax写法和jsonp的简单实现<br><a id="more"></a></p>
 <h1 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXMLHTTPRequest</span>(<span class="params"></span>) </span>&#123;     </div><div class="line">     <span class="comment">//1.创建XMLHttpRequest对象        </span></div><div class="line">     <span class="comment">//需要针对IE和其他类型的浏览器建立这个对象的不同方式写不同的代码     </span></div><div class="line">     <span class="keyword">var</span> xmlHttpRequest;  </div><div class="line">     <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;     </div><div class="line">         <span class="comment">//针对FireFox，Mozillar，Opera，Safari，IE7，IE8     </span></div><div class="line">        xmlHttpRequest = <span class="keyword">new</span> XMLHttpRequest();     </div><div class="line">         <span class="comment">//针对某些特定版本的mozillar浏览器的BUG进行修正 </span></div><div class="line">     &#125; <span class="keyword">else</span> &#123;     </div><div class="line">         <span class="comment">//针对IE6(用ie6的公司，还是别去了。。会哭) </span></div><div class="line">         xmlHttpRequest= <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">     &#125;     </div><div class="line">     <span class="keyword">return</span> xmlHttpRequest;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <h1 id="ajax的get请求"><a href="#ajax的get请求" class="headerlink" title="ajax的get请求"></a>ajax的get请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"GET"</span>, <span class="string">"http://test.com/?keywords=手机"</span>, <span class="literal">true</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        req.send(<span class="literal">null</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="ajax的post请求"><a href="#ajax的post请求" class="headerlink" title="ajax的post请求"></a>ajax的post请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">post</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"POST"</span>, <span class="string">"http://test.com/"</span>, <span class="literal">true</span>);  </div><div class="line">        req.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded; charset=gbk;"</span>);     </div><div class="line">        req.send(<span class="string">"keywords=手机"</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -405,6 +405,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/07/axio/" rel="prev" title="axio">
+                axio <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -474,7 +478,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
