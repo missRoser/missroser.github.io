@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/11/history/index.html">
 <meta property="og:site_name" content="神秘挑战者">
 <meta property="og:description" content="h5 history简单介绍">
-<meta property="og:updated_time" content="2017-08-15T05:58:57.312Z">
+<meta property="og:updated_time" content="2017-08-15T09:19:35.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="history">
 <meta name="twitter:description" content="h5 history简单介绍">
@@ -343,16 +343,17 @@
       
 
       
-        <p>h5 history简单介绍</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h1><p>1.history对象的一些概念<br>浏览器history对象用来保存一些浏览历史记录。history.length表示当前窗口有三个访问记录。</p>
-<blockquote>
-<p>备注：浏览器历史记录的记录方式<br>   1）直接在地址栏输入网页地址；<br>   2）通过网页内的超链接点击，跳转到其它网页；但是不能是在新窗口中打开的链接；<br>   3）通过脚本改变location.href跳转到其它网页；<br>   4）通过表单提交跳转到其它网页；但是不能是提交到新窗口的表单。<br>   5）网页锚点的变化，也会导致历史记录栈的更新，特性与前文描述相同。<br>   只要在同一窗口内部发生跳转</p>
-</blockquote>
-<p>2.history对象提供了一系列方法<br>（1）back()返回上一个页面<br>（2）forward()前进到下一个页面<br>（3）go(index)接收参数index,指跳转到第几个访问页面中。如果超出history.length则会报错</p>
-<p>3.h5新添加的两个方法history.pushState()和history.replaceState()<br>（1）history.pushState()在浏览记录里添加记录<br>（2）history.replaceState()在浏览记录修改记录</p>
-<hr>
-<p>这两个方法用法几乎一致。<br>state：一个与指定网址相关的状态对象，popstate事件触发时，该对象会传入回调函数。如果不需要这个对象，此处可以填null。<br>title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null。<br>url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。</p>
-
+        <p>h5 history简单介绍<br><a id="more"></a></p>
+<h1 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h1><p>浏览器history对象用来保存一些浏览历史记录。history.length=5表示当前窗口有五个访问记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">备注：浏览器历史记录的记录方式</div><div class="line">   1）直接在地址栏输入网页地址； </div><div class="line">   2）通过网页内的超链接点击，跳转到其它网页；但是不能是在新窗口中打开的链接； </div><div class="line">   3）通过脚本改变location.href跳转到其它网页； </div><div class="line">   4）通过表单提交跳转到其它网页；但是不能是提交到新窗口的表单。 </div><div class="line">   5）网页锚点的变化，也会导致历史记录栈的更新，特性与前文描述相同。</div><div class="line">   只要在同一窗口内部发生跳转</div></pre></td></tr></table></figure>
+<p><em><font color="#c10000">注释1</font>:当我们通过前面列举的方式改变网页地址的时候，都会把新的页面压入到历史记录栈的顶部，同时把指针指向到这个最新的网页</em><br><em><font color="#c10000">注释2</font>:浏览器在往历史记录栈里面压入新的记录时，是直接在当前指针后面压入的，如果当前指针的后面，还有其它的记录项，都会被丢弃掉</em></p>
+<h1 id="history对象提供了一系列方法"><a href="#history对象提供了一系列方法" class="headerlink" title="history对象提供了一系列方法"></a>history对象提供了一系列方法</h1><p>（1）back()返回上一个页面<br>（2）forward()前进到下一个页面<br>（3）go(index)接收参数index,指跳转到第几个访问页面中。如果超出history.length则会报错<br><em>*</em>点击查看demo<br><a href="https://warlockvsminister.github.io/js/history/e.html" target="_blank" rel="external"><font size="3">测试history</font></a></p>
+<h1 id="h5新添加pushState、replaceState"><a href="#h5新添加pushState、replaceState" class="headerlink" title="h5新添加pushState、replaceState"></a>h5新添加pushState、replaceState</h1><p>（1）history.pushState()在浏览记录里添加记录<br>（2）history.replaceState()在浏览记录修改记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">这两个方法用法几乎一致。</div><div class="line">state：一个与指定网址相关的状态对象，popstate事件触发时，该对象会传入回调函数。如果不需要这个对象，此处可以填null。</div><div class="line">title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null。</div><div class="line">url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。</div></pre></td></tr></table></figure></p>
+<p><em>*</em>点击查看demo<br><a href="https://warlockvsminister.github.io/js/history/e.html" target="_blank" rel="external"><font size="3">测试history</font></a></p>
+<h1 id="popstate事件"><a href="#popstate事件" class="headerlink" title="popstate事件"></a>popstate事件</h1><p>同一窗口的浏览历史出现变化(history对象),会触发popstate事件.<br><em><font color="#c10000">注意1</font>:调用pushState方法或replaceState方法 ，不会触发该事件。只有浏览器的前进后退按钮和history的go,back,forward会触发</em></p>
+<p>popstate事件的回调函数是个event对象,它的state属性指向pushState和replaceState方法的第一个参数<br><em><font color="#c10000">注意2</font>:页面第一次加载的时候，在load事件发生后，Chrome和Safari浏览器（Webkit核心）会触发popstate事件，而Firefox和IE浏览器不会</em></p>
+<h1 id="onhashchange事件"><a href="#onhashchange事件" class="headerlink" title="onhashchange事件"></a>onhashchange事件</h1><p>每当锚点发生变化的时候，主流浏览器会触发window对象的onhashchange事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.onhashchange = function(event) &#123;</div><div class="line">    console.log(event.oldURL);</div><div class="line">    console.log(event.newURL);</div><div class="line">    console.log(location.hash);</div><div class="line">&#125;;</div><div class="line">event.oldURL返回锚点变化前的完整浏览器地址； </div><div class="line">event.newURL返回锚点变化后的完整浏览器地址； </div><div class="line">location.hash返回锚点变化后页面地址中的锚点值。</div></pre></td></tr></table></figure>
       
     </div>
 	
@@ -400,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/31/prototype/" rel="next" title="prototype">
-                <i class="fa fa-chevron-left"></i> prototype
+              <a href="/2017/07/24/20170724/" rel="next" title="click手机端300毫秒解决方案">
+                <i class="fa fa-chevron-left"></i> click手机端300毫秒解决方案
               </a>
             
           </div>
@@ -476,7 +477,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -515,7 +516,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#history对象"><span class="nav-number">1.</span> <span class="nav-text">history对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#history对象提供了一系列方法"><span class="nav-number">2.</span> <span class="nav-text">history对象提供了一系列方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#h5新添加pushState、replaceState"><span class="nav-number">3.</span> <span class="nav-text">h5新添加pushState、replaceState</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#popstate事件"><span class="nav-number">4.</span> <span class="nav-text">popstate事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onhashchange事件"><span class="nav-number">5.</span> <span class="nav-text">onhashchange事件</span></a></li></ol></div>
             
           </div>
         </section>
