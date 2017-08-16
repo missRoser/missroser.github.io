@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/24/20170724/index.html">
 <meta property="og:site_name" content="神秘挑战者">
 <meta property="og:description" content="click手机端300ms延迟和解决方法">
-<meta property="og:updated_time" content="2017-08-16T03:45:29.197Z">
+<meta property="og:updated_time" content="2017-08-16T05:04:28.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="click手机端300毫秒解决方案">
 <meta name="twitter:description" content="click手机端300ms延迟和解决方法">
@@ -348,10 +348,7 @@
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>1.touchstart<br>缺点：用户在滑动页面的时候要是不小心碰到了相关元素也会触发touchstart</p>
 <p>2.meta标签<br>Chrome 32版本已经把这个延迟去掉了。</p>
 <p><meta name="viewport" content="width=device-width">把viewport设置成设备的实际像素，那么就不会有这300ms的延迟。<br><strong><em>注意:如果设置initial-scale=1.0，在chrome上是可以生效，但是Safari 不会</em></strong></p>
-<p>3.设置 CSS<br>html{<br>    touch-action: manipulation;<br>}</p>
-<ol>
-<li>zepto的tap事件和fastclick.js</li>
-</ol>
+<p>3.设置 CSS<br>html{<br>    touch-action: manipulation;<br>}<br>4.zepto的tap事件和fastclick.js</p>
 
       
     </div>
