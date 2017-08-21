@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="click手机端300ms延迟和解决方法">
+<meta name="description" content="手机端知识点总结（不定时补充）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="click手机端300毫秒解决方案">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/20170724/index.html">
+<meta property="og:title" content="手机端知识点">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/20170821/index.html">
 <meta property="og:site_name" content="神秘挑战者">
-<meta property="og:description" content="click手机端300ms延迟和解决方法">
-<meta property="og:updated_time" content="2017-08-16T05:04:28.651Z">
+<meta property="og:description" content="手机端知识点总结（不定时补充）">
+<meta property="og:updated_time" content="2017-08-21T08:58:53.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="click手机端300毫秒解决方案">
-<meta name="twitter:description" content="click手机端300ms延迟和解决方法">
+<meta name="twitter:title" content="手机端知识点">
+<meta name="twitter:description" content="手机端知识点总结（不定时补充）">
 
 <style>
     .pace .pace-progress {
@@ -130,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/24/20170724/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/21/20170821/"/>
 
-  <title> click手机端300毫秒解决方案 | 神秘挑战者 </title>
+  <title> 手机端知识点 | 神秘挑战者 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
             
             
               
-                click手机端300毫秒解决方案
+                手机端知识点
               
             
           </h1>
@@ -296,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-24T16:16:58+08:00" content="2017-07-24">
-              2017-07-24
+            <time itemprop="dateCreated" datetime="2017-08-21T15:58:30+08:00" content="2017-08-21">
+              2017-08-21
             </time>
           </span>
 
@@ -310,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/web-source/" itemprop="url" rel="index">
+                    <span itemprop="name">web-source</span>
                   </a>
                 </span>
 
@@ -343,12 +343,38 @@
       
 
       
-        <p>click手机端300ms延迟和解决方法<br><a id="more"></a></p>
-<h1 id="手机端300ms延迟"><a href="#手机端300ms延迟" class="headerlink" title="手机端300ms延迟"></a>手机端300ms延迟</h1><p>原因是：移动端要判断是否是双击，所以单击之后不能够立刻触发click，要等300ms，直到确认不是双击了才触发click。所以就导致了click有延迟。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>1.touchstart<br>缺点：用户在滑动页面的时候要是不小心碰到了相关元素也会触发touchstart</p>
-<p>2.meta标签<br>Chrome 32版本已经把这个延迟去掉了。</p>
-<p><meta name="viewport" content="width=device-width">把viewport设置成设备的实际像素，那么就不会有这300ms的延迟。<br><strong><em>注意:如果设置initial-scale=1.0，在chrome上是可以生效，但是Safari 不会</em></strong></p>
-<p>3.设置 CSS<br>html{<br>    touch-action: manipulation;<br>}<br>4.zepto的tap事件和fastclick.js</p>
+        <p>手机端知识点总结（不定时补充）<br><a id="more"></a></p>
+<h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</div><div class="line">&lt;meta content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; </div><div class="line">name=&quot;viewport&quot;&gt;</div><div class="line">//当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari</div><div class="line">&lt;meta content=&quot;yes&quot; name=&quot;apple-mobile-web-app-capable&quot;&gt;</div><div class="line">//将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式</div><div class="line">&lt;meta content=&quot;black&quot; name=&quot;apple-mobile-web-app-status-bar-style&quot;&gt;</div><div class="line">//忽略将页面中的数字识别为电话号码</div><div class="line">&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot;&gt;</div><div class="line">//忽略Android平台中对邮箱地址的识别</div><div class="line">&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot;&gt;</div></pre></td></tr></table></figure>
+<h1 id="css-js部分"><a href="#css-js部分" class="headerlink" title="css/js部分"></a>css/js部分</h1><h4 id="placeholder元素样式修改"><a href="#placeholder元素样式修改" class="headerlink" title="placeholder元素样式修改"></a>placeholder元素样式修改</h4><pre><code>input::-webkit-input-placeholder{color:red;}
+input:focus::-webkit-input-placeholder{color:green;}
+</code></pre><hr>
+<h4 id="touch时有蓝色的边框或半透明灰色遮罩"><a href="#touch时有蓝色的边框或半透明灰色遮罩" class="headerlink" title="touch时有蓝色的边框或半透明灰色遮罩"></a>touch时有蓝色的边框或半透明灰色遮罩</h4><pre><code>-webkit-tap-highlight-color:rgba(0,0,0,0);
+</code></pre><hr>
+<h4 id="ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉"><a href="#ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉" class="headerlink" title="ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉"></a>ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉</h4><pre><code>a,button,input,textarea{-webkit-tap-highlight-color: rgba(0,0,0,0;)}
+</code></pre><hr>
+<h4 id="webkit表单元素的默认外观怎么重置"><a href="#webkit表单元素的默认外观怎么重置" class="headerlink" title="webkit表单元素的默认外观怎么重置"></a>webkit表单元素的默认外观怎么重置</h4><pre><code>.css{-webkit-appearance:none;}
+</code></pre><hr>
+<h4 id="改变input-number类型的默认样式"><a href="#改变input-number类型的默认样式" class="headerlink" title="改变input number类型的默认样式"></a>改变input number类型的默认样式</h4><pre><code>input[type=number]::-webkit-textfield-decoration-container {
+        background-color: transparent;    
+    }
+    input[type=number]::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+    }
+    input[type=number]::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+    }
+</code></pre><hr>
+<h4 id="禁止ios-长按时不触发系统的菜单，禁止ios-amp-android长按时下载图片"><a href="#禁止ios-长按时不触发系统的菜单，禁止ios-amp-android长按时下载图片" class="headerlink" title="禁止ios 长按时不触发系统的菜单，禁止ios&amp;android长按时下载图片"></a>禁止ios 长按时不触发系统的菜单，禁止ios&amp;android长按时下载图片</h4><pre><code>.css{-webkit-touch-callout: none}
+</code></pre><hr>
+<h4 id="禁止ios和android用户选中文字"><a href="#禁止ios和android用户选中文字" class="headerlink" title="禁止ios和android用户选中文字"></a>禁止ios和android用户选中文字</h4><pre><code>.css{-webkit-user-select:none}
+</code></pre><hr>
+<h4 id="页面中打电话-发短信-写邮件"><a href="#页面中打电话-发短信-写邮件" class="headerlink" title="页面中打电话/发短信/写邮件"></a>页面中打电话/发短信/写邮件</h4><pre><code>&lt;a href=&quot;tel:0755-10086&quot;&gt;打电话给:0755-10086&lt;/a&gt;
+&lt;a href=&quot;sms:10086&quot;&gt;发短信给: 10086&lt;/a&gt;
+</code></pre><hr>
+<h4 id="input-type-file上传图片会很慢"><a href="#input-type-file上传图片会很慢" class="headerlink" title="input type=file上传图片会很慢"></a>input type=file上传图片会很慢</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"file"</span> accept=<span class="string">"*"</span>&gt;</div></pre></td></tr></table></figure>
+<p>通过将 * 通配符 修改成指定的MIME类型就可解决。例如上传图片<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"file"</span> accept=<span class="string">"image/gif,image/jpeg,image/jpg,image/png,image/svg"</span>&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="屏幕旋转的事件和样式"><a href="#屏幕旋转的事件和样式" class="headerlink" title="屏幕旋转的事件和样式"></a>屏幕旋转的事件和样式</h4><p> window.orientation，取值：正负90表示横屏模式、0和180表现为竖屏模式；<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onorientationchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">switch</span>(<span class="built_in">window</span>.orientation)&#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">-90</span>:</div><div class="line">        <span class="keyword">case</span> <span class="number">90</span>:</div><div class="line">        alert(<span class="string">"横屏:"</span> + <span class="built_in">window</span>.orientation);</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">        <span class="keyword">case</span> <span class="number">180</span>:</div><div class="line">        alert(<span class="string">"竖屏:"</span> + <span class="built_in">window</span>.orientation);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;  </div><div class="line"><span class="comment">//竖屏时使用的样式</span></div><div class="line">@media all and (orientation:portrait) &#123;</div><div class="line">.css&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//横屏时使用的样式</span></div><div class="line">@media all and (orientation:landscape) &#123;</div><div class="line">.css&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -397,17 +423,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/axio/" rel="next" title="axio">
-                <i class="fa fa-chevron-left"></i> axio
+              <a href="/2017/08/11/history/" rel="next" title="history">
+                <i class="fa fa-chevron-left"></i> history
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/11/history/" rel="prev" title="history">
-                history <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +538,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#手机端300ms延迟"><span class="nav-number">1.</span> <span class="nav-text">手机端300ms延迟</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#meta标签"><span class="nav-number">1.</span> <span class="nav-text">meta标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css-js部分"><span class="nav-number">2.</span> <span class="nav-text">css/js部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#placeholder元素样式修改"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">placeholder元素样式修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#touch时有蓝色的边框或半透明灰色遮罩"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">touch时有蓝色的边框或半透明灰色遮罩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webkit表单元素的默认外观怎么重置"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">webkit表单元素的默认外观怎么重置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改变input-number类型的默认样式"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">改变input number类型的默认样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止ios-长按时不触发系统的菜单，禁止ios-amp-android长按时下载图片"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">禁止ios 长按时不触发系统的菜单，禁止ios&android长按时下载图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止ios和android用户选中文字"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">禁止ios和android用户选中文字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面中打电话-发短信-写邮件"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">页面中打电话/发短信/写邮件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input-type-file上传图片会很慢"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">input type=file上传图片会很慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕旋转的事件和样式"><span class="nav-number">2.0.0.10.</span> <span class="nav-text">屏幕旋转的事件和样式</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
