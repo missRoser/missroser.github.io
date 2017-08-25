@@ -346,7 +346,7 @@
         <p>axios介绍和基本用法<br><a id="more"></a></p>
 <h1 id="axios介绍"><a href="#axios介绍" class="headerlink" title="axios介绍"></a>axios介绍</h1><p>1。Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。<br>2。支持在浏览器发送ajax请求并转换请求数据和响应数据和node.js创建http 请求<br>3。支持 Promise API<br>4。自动转换 JSON 数据<br>5。客户端支持防御 <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="external">XSRF</a></p>
 <h1 id="axios安装"><a href="#axios安装" class="headerlink" title="axios安装"></a>axios安装</h1><p>使用 npm安装:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install axios</div></pre></td></tr></table></figure></p>
-<p>或者使用cdn<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"https://unpkg.com/axios/dist/axios.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>或者使用cdn<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"https://unpkg.com/axios/dist/axios.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <h1 id="axios-API"><a href="#axios-API" class="headerlink" title="axios API"></a>axios API</h1><h3 id="可以通过向-axios-传递相关配置来创建请求"><a href="#可以通过向-axios-传递相关配置来创建请求" class="headerlink" title="可以通过向 axios 传递相关配置来创建请求"></a>可以通过向 axios 传递相关配置来创建请求</h3><p>axios(config)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 发送 POST 请求</span></div><div class="line">axios(&#123;</div><div class="line">  method: <span class="string">'post'</span>,</div><div class="line">  url: <span class="string">'/user/12345'</span>,</div><div class="line">  data: &#123;</div><div class="line">    first: <span class="string">'first'</span>,</div><div class="line">    last: <span class="string">'last'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 发送 GET 请求（默认的方法）</span></div><div class="line">axios(<span class="string">'/user/12345'</span>);</div></pre></td></tr></table></figure></p>
 <h3 id="请求方法的别名"><a href="#请求方法的别名" class="headerlink" title="请求方法的别名"></a>请求方法的别名</h3><p>为方便起见，为所有支持的请求方法提供了别名</p>
 <p>axios.request(config)<br>axios.get(url[, config])<br>axios.delete(url[, config])<br>axios.head(url[, config])<br>axios.post(url[, data[, config]])<br>axios.put(url[, data[, config]])<br>axios.patch(url[, data[, config]])</p>
@@ -489,7 +489,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
