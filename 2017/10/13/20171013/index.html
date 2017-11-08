@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="原生ajax写法和jsonp的简单实现">
+<meta name="description" content="webpack的一份配置文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生ajax">
-<meta property="og:url" content="http://yoursite.com/2017/07/04/20170704/index.html">
+<meta property="og:title" content="一份webpack配置文件">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/20171013/index.html">
 <meta property="og:site_name" content="神秘挑战者">
-<meta property="og:description" content="原生ajax写法和jsonp的简单实现">
-<meta property="og:updated_time" content="2017-07-05T01:31:19.839Z">
+<meta property="og:description" content="webpack的一份配置文件">
+<meta property="og:updated_time" content="2017-11-08T07:35:41.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生ajax">
-<meta name="twitter:description" content="原生ajax写法和jsonp的简单实现">
+<meta name="twitter:title" content="一份webpack配置文件">
+<meta name="twitter:description" content="webpack的一份配置文件">
 
 <style>
     .pace .pace-progress {
@@ -130,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/04/20170704/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/13/20171013/"/>
 
-  <title> 原生ajax | 神秘挑战者 </title>
+  <title> 一份webpack配置文件 | 神秘挑战者 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
             
             
               
-                原生ajax
+                一份webpack配置文件
               
             
           </h1>
@@ -296,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-04T09:48:34+08:00" content="2017-07-04">
-              2017-07-04
+            <time itemprop="dateCreated" datetime="2017-10-13T09:54:15+08:00" content="2017-10-13">
+              2017-10-13
             </time>
           </span>
 
@@ -310,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
                   </a>
                 </span>
 
@@ -343,14 +343,9 @@
       
 
       
-        <p>原生ajax写法和jsonp的简单实现<br><a id="more"></a></p>
-<h1 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXMLHTTPRequest</span>(<span class="params"></span>) </span>&#123;     </div><div class="line">     <span class="comment">//1.创建XMLHttpRequest对象        </span></div><div class="line">     <span class="comment">//需要针对IE和其他类型的浏览器建立这个对象的不同方式写不同的代码     </span></div><div class="line">     <span class="keyword">var</span> xmlHttpRequest;  </div><div class="line">     <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;     </div><div class="line">         <span class="comment">//针对FireFox，Mozillar，Opera，Safari，IE7，IE8     </span></div><div class="line">        xmlHttpRequest = <span class="keyword">new</span> XMLHttpRequest();     </div><div class="line">         <span class="comment">//针对某些特定版本的mozillar浏览器的BUG进行修正 </span></div><div class="line">     &#125; <span class="keyword">else</span> &#123;     </div><div class="line">         <span class="comment">//针对IE6(用ie6的公司，还是别去了。。会哭) </span></div><div class="line">         xmlHttpRequest= <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div><div class="line">     &#125;     </div><div class="line">     <span class="keyword">return</span> xmlHttpRequest;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h1 id="ajax的get请求"><a href="#ajax的get请求" class="headerlink" title="ajax的get请求"></a>ajax的get请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"GET"</span>, <span class="string">"http://test.com/?keywords=手机"</span>, <span class="literal">true</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        req.send(<span class="literal">null</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="ajax的post请求"><a href="#ajax的post请求" class="headerlink" title="ajax的post请求"></a>ajax的post请求</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">post</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">var</span> req = createXMLHTTPRequest();  </div><div class="line">    <span class="keyword">if</span>(req)&#123;  </div><div class="line">        req.open(<span class="string">"POST"</span>, <span class="string">"http://test.com/"</span>, <span class="literal">true</span>);  </div><div class="line">        req.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded; charset=gbk;"</span>);     </div><div class="line">        req.send(<span class="string">"keywords=手机"</span>);  </div><div class="line">        req.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(req.readyState == <span class="number">4</span>)&#123;  </div><div class="line">                <span class="keyword">if</span>(req.status == <span class="number">200</span>)&#123;  </div><div class="line">                    alert(<span class="string">"success"</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(req.response)<span class="comment">//如果返回的是字符串,则需要JSON.parse(),转换成js对象</span></div><div class="line">                &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                    alert(<span class="string">"error"</span>);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong><em>post请求需要设置请求头</em></strong></p>
-<h1 id="ajax的jsonP请求"><a href="#ajax的jsonP请求" class="headerlink" title="ajax的jsonP请求"></a>ajax的jsonP请求</h1><p>在介绍jsonp之前，首先我们来了解下同源策略。同源策略阻止从一个域上加载的脚本获取或操作另一个域上的文档属性。也就是说，受到请求的 URL 的域必须与当前 Web 页面的域相同。这意味着浏览器隔离来自不同源的内容，以防止它们之间的操作。</p>
-<p>这时我们就需要jsonp来做跨域操作(有时候也需要服务端支持).主要是利用script标签内的src可以跨域来实现</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">wellFn</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data)</div><div class="line">  &#125;<span class="comment">//在js中做的回调函数</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> xmlJs = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line"></div><div class="line">xmlJs.src=<span class="string">"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E6%B5%B7%E8%B4%BC%E7%8E%8B&amp;json=1&amp;cb=wellFn"</span>;<span class="comment">//这时百度搜索的一个请求,wd后面跟要搜索的关键字;cb后面跟你的回调函数</span></div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(xmlJs)<span class="comment">//把script插入到页面中,当你打开页面时候控制台就会出现你请求的json</span></div></pre></td></tr></table></figure>
+        <p>webpack的一份配置文件</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//html模板插入代码。</span></div><div class="line"><span class="keyword">var</span> jquery = <span class="built_in">require</span>(<span class="string">'jquery'</span>);</div><div class="line"></div><div class="line"><span class="comment">//获取页面ip</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces) &#123;</div><div class="line">        <span class="keyword">var</span> iface = interfaces[devName];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; iface.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> alias = iface[i];</div><div class="line">            <span class="keyword">if</span> (alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal) &#123;</div><div class="line">                <span class="keyword">return</span> alias.address;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ip = getIPAdress();</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  entry: &#123;</div><div class="line">    build: <span class="string">'./src/main.js'</span>,</div><div class="line">    vendor: [<span class="string">'jquery'</span>]</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    <span class="comment">//publicPath: './',</span></div><div class="line">    path: path.resolve(__dirname, <span class="string">'public/'</span>),</div><div class="line">    filename: <span class="string">'[name].js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="built_in">module</span>: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;</div><div class="line">        test: <span class="regexp">/\.js$/</span>,</div><div class="line">        loader: <span class="string">'babel-loader'</span>,</div><div class="line">        exclude: <span class="regexp">/node_modules/</span></div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: <span class="regexp">/\.(png|jpg|gif|svg)$/</span>,</div><div class="line">        loader: <span class="string">'file-loader'</span>,</div><div class="line">        options: &#123;</div><div class="line">          name: <span class="string">'[name].[ext]?[hash]'</span></div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: <span class="regexp">/\.css$/</span>,</div><div class="line">        use: [ <span class="string">'style-loader'</span>, <span class="string">'css-loader'</span> ]</div><div class="line">      &#125;<span class="comment">//这里添加你需要的模块</span></div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  resolve: &#123;</div><div class="line">    extensions: [<span class="string">'.vue'</span>, <span class="string">'.js'</span>, <span class="string">'.css'</span>, <span class="string">'.sass'</span>, <span class="string">'.scss'</span>],</div><div class="line">    alias: &#123;</div><div class="line">      <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  devServer: &#123;</div><div class="line">    <span class="comment">//contentBase: "/public",</span></div><div class="line">    historyApiFallback: <span class="literal">true</span>,</div><div class="line">    noInfo: <span class="literal">true</span>,</div><div class="line">    host: ip,</div><div class="line">    port: <span class="string">"8088"</span></div><div class="line">  &#125;,</div><div class="line">  performance: &#123;</div><div class="line">    hints: <span class="literal">false</span></div><div class="line">  &#125;,</div><div class="line">  devtool: <span class="string">'#eval-source-map'</span>,</div><div class="line">  plugins: [</div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        NODE_ENV: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">      sourceMap: <span class="literal">true</span>,</div><div class="line">      compress: &#123;</div><div class="line">        warnings: <span class="literal">false</span></div><div class="line">      &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.LoaderOptionsPlugin(&#123;</div><div class="line">      minimize: <span class="literal">true</span></div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">        template: <span class="string">'./index.html'</span>,</div><div class="line">        <span class="comment">// 要把&lt;script&gt;标签插入到页面哪个标签里(body|true|head|false)</span></div><div class="line">        inject: <span class="string">'true'</span>,</div><div class="line">        filename: <span class="string">"kmm.html"</span>,</div><div class="line">        <span class="comment">// hash如果为true，将添加hash到所有包含的脚本和css文件，对于解除cache很有用</span></div><div class="line">        <span class="comment">// minify用于压缩html文件，其中的removeComments:true用于移除html中的注释，collapseWhitespace:true用于删除空白符与换行符</span></div><div class="line">        minify: &#123;</div><div class="line">            removeComments: <span class="literal">true</span>,</div><div class="line">            collapseWhitespace: <span class="literal">true</span>,</div><div class="line">            removeAttributeQuotes: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 	
@@ -398,16 +393,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/21/git-ssh/" rel="next" title="git_ssh">
-                <i class="fa fa-chevron-left"></i> git_ssh
+              <a href="/2017/09/18/20170918/" rel="next" title="ios10以上的版本只能拍照不能上传图片">
+                <i class="fa fa-chevron-left"></i> ios10以上的版本只能拍照不能上传图片
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/07/axio/" rel="prev" title="axio">
-                axio <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/31/20171031/" rel="prev" title="js作用域链与闭包">
+                js作用域链与闭包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +512,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的get请求"><span class="nav-number">2.</span> <span class="nav-text">ajax的get请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的post请求"><span class="nav-number">3.</span> <span class="nav-text">ajax的post请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax的jsonP请求"><span class="nav-number">4.</span> <span class="nav-text">ajax的jsonP请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
             
           </div>
         </section>
