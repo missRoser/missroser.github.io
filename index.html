@@ -283,6 +283,127 @@
             
               
                 
+                <a class="post-title-link" href="/2017/11/24/20171124/" itemprop="url">
+                  q.js入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-24T17:17:43+08:00" content="2017-11-24">
+              2017-11-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>q.js入门及简单使用<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/24/20171124/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+	
+	<div>
+	  
+	</div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+	
+  </article>
+  
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/31/20171031/" itemprop="url">
                   js作用域链与闭包
                 </a>
@@ -346,7 +467,12 @@
       
         
           
-            <h1 id="js作用域链和闭包"><a href="#js作用域链和闭包" class="headerlink" title="js作用域链和闭包"></a>js作用域链和闭包</h1>
+            <a id="more"></a>
+<h1 id="js作用域链"><a href="#js作用域链" class="headerlink" title="js作用域链"></a>js作用域链</h1><p>首先介绍几个概念：<br>变量对象：执行环境定义的所有变量和函数都保存在这个对象中。<br>执行环境：执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。<br>作用域链：当代码在环境中执行，会创建变量对象的一个作用域链。作用是对执行环境有权访问的所有变量和函数的有序访问。</p>
+<p>作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（activation object）作为变量对象。活动对象在最开始时只包含一个变量，即 arguments 对象</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var color = "blue";</div><div class="line">function changeColor()&#123;</div><div class="line">    var anotherColor = "red";</div><div class="line">    </div><div class="line">    function swapColors()&#123;</div><div class="line">        var tempColor = anotherColor;</div><div class="line">        anotherColor = color;</div><div class="line">        color = tempColor;</div><div class="line"></div><div class="line">        // 这里可以访问 color、anotherColor 和 tempColor</div><div class="line">    &#125;</div><div class="line">    // 这里可以访问 color 和 anotherColor，但不能访问 tempColor</div><div class="line">    swapColors();</div><div class="line">&#125;</div><div class="line">// 这里只能访问 color</div><div class="line">changeColor();</div></pre></td></tr></table></figure>
+<p><strong><em>注意：1、内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数<br>2、环境之间的联系是线性、有次序的。每个环境都可以向上搜索作用域链，以查询变量和函数名</em></strong><br><img src="http://okyal4bzs.bkt.clouddn.com/%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.jpg" alt=""></p>
+<h1 id="js闭包"><a href="#js闭包" class="headerlink" title="js闭包"></a>js闭包</h1>
           
         
       
@@ -1349,127 +1475,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/21/git-ssh/" itemprop="url">
-                  git_ssh
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-21T13:54:56+08:00" content="2017-02-21">
-              2017-02-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>git提交代码到github上和多个github帐号的SSH key切换</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/21/git-ssh/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-	
-	<div>
-	  
-	</div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-	
-  </article>
-  
-
-
-    
   </section>
 
   
@@ -1515,7 +1520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
